@@ -9,7 +9,7 @@ import io
 
 def extractor(line):
 	"""Recieves a string that ends in a newline character.
-	Returns a phone number (with no formatting) or a NoneType object."""
+	Returns a phone number (with no formatting)"""
 	num = re.findall(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]', line)
 	if len(num):
 		phnum = re.sub("\D", "", num[0])
@@ -26,13 +26,9 @@ def main():
 			data = infile.readlines()
 			for line in data:
 				numlist.append(extractor(line))
-				
-		for item in numlist:
-			if isinstance(item, str):
-				print(item)
 		
 		print("Enter a name for your output file.")
-		ofile = input() + ".txt"
+		ofile = input()
 		with io.open(ofile,'w',encoding='ascii',errors='ignore') as outfile:
 			for num in numlist:
 				if num is not None:
