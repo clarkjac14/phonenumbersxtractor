@@ -1,5 +1,5 @@
 # phonenumbersxtractor
-Author
+
 A python script for extracting phone numbers from text documents.
 
 This should handle decoding issues with utf-8 because the files are opened with ascii encoding
